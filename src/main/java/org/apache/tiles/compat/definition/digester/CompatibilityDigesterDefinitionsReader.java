@@ -21,8 +21,8 @@
 
 package org.apache.tiles.compat.definition.digester;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.Rule;
+import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.Rule;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.beans.SimpleMenuItem;
 import org.apache.tiles.definition.digester.DigesterDefinitionsReader;

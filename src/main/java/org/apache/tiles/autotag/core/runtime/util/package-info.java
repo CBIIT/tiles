@@ -1,5 +1,5 @@
 /*
- * $Id: TemplateSuiteFactory.java 1044707 2010-12-11 20:35:57Z apetrelli $
+ * $Id: package-info.java 1044817 2010-12-12 13:22:01Z apetrelli $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,20 +18,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.tiles.autotag.model;
-
-
 /**
- * Creates a new template suite.
- *
- * @version $Rev: 1044707 $ $Date: 2010-12-12 07:35:57 +1100 (Sun, 12 Dec 2010) $
+ * Utilities for Autotag core runtime.
  */
-public interface TemplateSuiteFactory {
-
-    /**
-     * Creates a template suite.
-     *
-     * @return The created template suite.
-     */
-    TemplateSuite createTemplateSuite();
-}
+package org.apache.tiles.autotag.core.runtime.util;

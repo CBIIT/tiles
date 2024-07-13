@@ -56,7 +56,7 @@ public class DelegatePropertyAccessor<T> implements PropertyAccessor {
 
     /** {@inheritDoc} */
     @SuppressWarnings("unchecked")
-    public Object getProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name)
+    public Object getProperty(OgnlContext context, Object target, Object name)
             throws OgnlException {
         return factory.getPropertyAccessor((String) name, (T) target).getProperty(
                 context, target, name);
@@ -64,7 +64,7 @@ public class DelegatePropertyAccessor<T> implements PropertyAccessor {
 
     /** {@inheritDoc} */
     @SuppressWarnings("unchecked")
-    public void setProperty(@SuppressWarnings("rawtypes") Map context, Object target, Object name,
+    public void setProperty(OgnlContext context, Object target, Object name,
             Object value) throws OgnlException {
         factory.getPropertyAccessor((String) name, (T) target).setProperty(context,
                 target, name, value);
@@ -85,4 +85,5 @@ public class DelegatePropertyAccessor<T> implements PropertyAccessor {
         return factory.getPropertyAccessor((String) index, (T) target)
                 .getSourceSetter(context, target, index);
     }
+
 }

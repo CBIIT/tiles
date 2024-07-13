@@ -1,5 +1,5 @@
 /*
- * $Id$
+ * $Id: package-info.java 1044817 2010-12-12 13:22:01Z apetrelli $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,26 +18,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.apache.tiles.autotag.core;
-
-import java.io.IOException;
-import java.io.OutputStream;
-
 /**
- * Decouples the autotag generator from the actual location of the files.
+ * Annotations to be used in template classes.
  */
-public interface OutputLocator {
-	/**
-	 * Returns a writer for the file at this path.
-	 * @param resourcePath the path of the file to write
-	 * @return a Writer for the file.
-	 */
-	OutputStream getOutputStream(String resourcePath) throws IOException;
-	
-	/**
-	 * Checks if the output is up to date.
-	 * @param resourcePath the path of the file to write.
-	 * @return true if the output doesn't need to be generated again.
-	 */
-	boolean isUptodate(String resourcePath);
-}
+package org.apache.tiles.autotag.core.runtime.annotation;

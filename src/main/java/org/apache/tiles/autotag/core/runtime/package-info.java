@@ -1,5 +1,5 @@
 /*
- * $Id: package-info.java 1044707 2010-12-11 20:35:57Z apetrelli $
+ * $Id: package-info.java 1044817 2010-12-12 13:22:01Z apetrelli $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,6 +19,6 @@
  * under the License.
  */
 /**
- * Velocity tools to be used in Velocity templates.
+ * Runtime part for all Autotag generated code.
  */
-package org.apache.tiles.autotag.tool;
+package org.apache.tiles.autotag.core.runtime;

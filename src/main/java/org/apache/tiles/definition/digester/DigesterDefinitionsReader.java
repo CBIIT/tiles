@@ -27,8 +27,8 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.apache.commons.digester.Digester;
-import org.apache.commons.digester.Rule;
+import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.Rule;
 import org.apache.tiles.Attribute;
 import org.apache.tiles.Definition;
 import org.apache.tiles.Expression;
@@ -233,7 +233,7 @@ public class DigesterDefinitionsReader implements DefinitionsReader {
      * <code>Digester</code> object used to read Definition data
      * from the source.
      */
-    protected Digester digester;
+    protected static Digester digester;
 
     /**
      * The set of public identifiers, and corresponding resource names for

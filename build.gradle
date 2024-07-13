@@ -1,0 +1,85 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+allprojects {
+	apply plugin:		'java'
+	apply plugin: 		'eclipse'
+	group				=		'org.apache.tiles'
+	version				= 		project.version
+
+	repositories {
+		mavenCentral()
+		
+		flatDir {
+			dirs('../libs')
+		}
+	}
+	
+	dependencies {	
+		implementation('com.google.guava:guava:33.2.1-jre')
+		
+		implementation('jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0')
+		implementation('jakarta.el:jakarta.el-api:3.0.3')
+		compileOnly('jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.1')
+		
+		implementation('ognl:ognl:3.4.3')
+		
+		implementation('org.apache.commons:commons-digester3:3.2')
+		// implementation('org.apache.velocity:velocity-engine-core:2.3')
+		
+		//implementation('org.freemarker:freemarker:2.3.33')
+		
+		implementation('org.mvel:mvel2:2.5.2.Final')
+		
+		implementation('org.slf4j:slf4j-api:2.0.13')
+		implementation('org.slf4j:jcl-over-slf4j:2.0.13')
+		
+		implementation('org.springframework:spring-core:6.1.10')
+		implementation('org.springframework:spring-web:6.1.10')
+		
+		//compileOnly 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:4.0.0'
+		//compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+		//implementation 'jakarta.el:jakarta.el-api:6.0.0'
+
+		implementation fileTree(dir: "$rootDir/libs", include: ['*.jar'])
+		implementation fileTree(dir: "$rootDir/build/libs", include: ['*.jar'])
+	}
+}
+	
+sourceCompatibility = 17
+targetCompatibility = 17
+
+compileJava {
+	options.compilerArgs << '-Aopenjpa.source=17'
+	options.compilerArgs << '-Aopenjpa.metamodel=true'
+}
+
+wrapper {
+    gradleVersion = '7.6.4'
+}
+
+task uberJar(type: Jar) {
+    archiveBaseName	=	'tiles'   
+    from sourceSets.main.output
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
+clean.doLast {
+	file('caches/build-cache-1').deleteDir()
+}
+
+task showCache
+showCache.doLast {
+	configurations.compile.each { println it }
+}
+
+javadoc {
+	source sourceSets.main.allSource
+	failOnError = false
+}
+
+jar {
+	archiveBaseName = 'tiles'
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: package-info.java 1044707 2010-12-11 20:35:57Z apetrelli $
+ * $Id: NullWriter.java 1306435 2012-03-28 15:39:11Z nlebas $
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -18,7 +18,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+package org.apache.tiles.autotag.core.runtime.util;
+
+import java.io.Writer;
+
 /**
- * The Autotag core parsing code.
+ * A writer that does not write anything.
+ *
+ * @version $Rev: 1306435 $ $Date: 2012-03-29 02:39:11 +1100 (Thu, 29 Mar 2012) $
  */
-package org.apache.tiles.autotag.core;
+public class NullWriter extends Writer {
+
+    /** {@inheritDoc} */
+    @Override
+    public void close() {
+        // Does nothing
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void flush() {
+        // Does nothing
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public void write(char[] cbuf, int off, int len) {
+        // Does nothing
+    }
+}
